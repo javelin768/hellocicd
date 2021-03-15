@@ -52,6 +52,7 @@
 						<applicationName>production-hellocicd-tcs</applicationName>
 						<businessGroup>7fceab2c-eb9d-457a-b64e-2f8a617db023</businessGroup>
 						<workerType>Micro</workerType>
+						<objectStoreV2>true</objectStoreV2>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
@@ -79,6 +80,7 @@
 								<workerType>Micro</workerType>
 								<uri>https://anypoint.mulesoft.com</uri>
 								<workerType>Micro</workerType>
+								<objectStoreV2>true</objectStoreV2>
 							</cloudHubDeployment>
 						</configuration>
 						<executions>
