@@ -1,0 +1,37 @@
+#%RAML 1.0
+types:
+  Contacts:
+    example:
+      strict: true
+      value:
+        FirstName: Max
+        LastName: Mule
+        Email: maxthemule@mulesoft.com
+        Company: MuleSoft
+    properties:
+      FirstName?:
+        example: Example
+        type: string
+      LastName?:
+        example: Example
+        type: string
+      Email?:
+        example: Example
+        type: string
+      Company?:
+        example: Example
+        type: string
+title: Get Contacts API
+version: "1"
+/contacts:
+  get:
+    displayName: Contacts Endpoint
+    responses:
+      "200":
+        body:
+          application/json:
+            type: Contacts
+mediaType:
+  - application/json
+protocols:
+  - HTTP

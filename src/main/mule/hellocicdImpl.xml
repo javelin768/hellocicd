@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="hellocicdImplFlow" doc:id="f6829d23-0d66-4073-92c4-1103cbc7c2e1" >
+		<set-variable value="#[uuid()]" doc:name="Set Variable" doc:id="4538c4d6-5e38-4ba4-921c-ac16f5c993ce" variableName="uuidVar"/>
+		<logger level="INFO" doc:name="Logger" doc:id="4d5f2dad-910c-4581-973f-b497ec416102" message='#["UUID ::" ++ vars.uuidVar]'/>
+		<ee:transform doc:name="Transform Message" doc:id="3ec2399a-e4c3-40b9-85ca-a03e9512186a" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+	"message" : "Call done. Transaction ID :: " ++ vars.uuidVar
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
