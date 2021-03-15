@@ -15,7 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.3.0-20210105</app.runtime>
+		<app.runtime>4.3.0</app.runtime>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 	</properties>
 
@@ -34,20 +34,58 @@
 				<configuration>
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${mule.version}</muleVersion>
+						<muleVersion>4.3.0</muleVersion>
 						<!-- Deploy User Parameter -->
-						<username>${anypoint.username}</username>
-						<password>${anypoint.password}</password>
+						<username>tsutradhar2213</username>
+						<password>Folder123</password>
 						<!-- Environment Parameter -->
-						<environment>${cloudhub.environment}</environment>
-						<applicationName>${cloudhub.app}</applicationName>
-						<businessGroup>${cloudhub.bg}</businessGroup>
-						<workerType>${cloudhub.worker}</workerType>
+						<environment>Sandbox</environment>
+						<applicationName>production-hellocicd-tcs</applicationName>
+						<businessGroup>7fceab2c-eb9d-457a-b64e-2f8a617db023</businessGroup>
+						<workerType>Micro</workerType>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+	
+	<profiles>
+		<profile>
+			<id>cloudhub</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mule.tools.maven</groupId>
+						<artifactId>mule-maven-plugin</artifactId>
+						<configuration>
+							<cloudHubDeployment>
+								<muleVersion>4.3.0</muleVersion>
+								<!-- Deploy User Parameter -->
+								<username>tsutradhar2213</username>
+								<password>Folder123</password>
+								<applicationName>${artifactId}-${maven.build.timestamp}</applicationName>
+								<environment>Sandbox</environment>
+								<applicationName>sandbox-hellocicd-tcs2213</applicationName>
+								<businessGroup>7fceab2c-eb9d-457a-b64e-2f8a617db023</businessGroup>
+								<workerType>Micro</workerType>
+								<uri>https://anypoint.mulesoft.com</uri>
+								<workerType>Micro</workerType>
+							</cloudHubDeployment>
+						</configuration>
+						<executions>
+							<execution>
+								<id>deploy</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<dependencies>
 		<dependency>
