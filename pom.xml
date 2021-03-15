@@ -20,12 +20,12 @@
 	</properties>
 	<distributionManagement>
 		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<id>dev</id>
+			<url>file://${user.home}/.m2/repository/distri/snapshots</url>
 		</snapshotRepository>
 		<repository>
 			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			<url>file://${user.home}/.m2/repository/distri</url>
 		</repository>
 	</distributionManagement>
 	<build>
