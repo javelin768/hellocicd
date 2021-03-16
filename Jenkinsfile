@@ -31,8 +31,8 @@ pipeline {
     	WORKER = "Micro"
       }
       steps {
-           /* sh 'mvn deploy -P cloudhub -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%"'*/
-           sh 'mvn deploy -P cloudhub -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dapp.name="%APP_NAME%" -Danypoint.env="%ENVIRONMENT%"'
+           /* sh 'mvn deploy -P cloudhub -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password="${DEPLOY_CREDS_PSW}"'*/
+           sh 'mvn deploy -P cloudhub -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dapp.name=${APP_NAME} -Danypoint.env=${ENVIRONMENT}'
       }
     }
    /* stage('Deploy Production') {
