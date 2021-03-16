@@ -40,21 +40,21 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
-				<configuration>
+<!-- 				<configuration>
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.3.0</muleVersion>
-						<!-- Deploy User Parameter -->
+						Deploy User Parameter
 						<username>tsutradhar2213</username>
 						<password>Folder123</password>
-						<!-- Environment Parameter -->
+						Environment Parameter
 						<environment>Sandbox</environment>
 						<applicationName>production-hellocicd-tcs</applicationName>
 						<businessGroup>7fceab2c-eb9d-457a-b64e-2f8a617db023</businessGroup>
 						<workerType>Micro</workerType>
 						<objectStoreV2>true</objectStoreV2>
 					</cloudHubDeployment>
-				</configuration>
+				</configuration> -->
 			</plugin>
 		</plugins>
 	</build>
@@ -69,13 +69,12 @@
 						<artifactId>mule-maven-plugin</artifactId>
 						<configuration>
 							<cloudHubDeployment>
-								<muleVersion>4.3.0</muleVersion>
+								<muleVersion>${mule.version}</muleVersion>
 								<!-- Deploy User Parameter -->
-								<username>tsutradhar2213</username>
-								<password>Folder123</password>
-								<applicationName>${artifactId}-${maven.build.timestamp}</applicationName>
-								<environment>Sandbox</environment>
-								<applicationName>sandbox-hellocicd-tcs2213</applicationName>
+								<username>${anypoint.username}</username>
+								<password>${anypoint.password}</password>
+								<applicationName>${app.name}</applicationName>
+								<environment>${anypoint.env}</environment>
 								<businessGroup>7fceab2c-eb9d-457a-b64e-2f8a617db023</businessGroup>
 								<workerType>Micro</workerType>
 								<uri>https://anypoint.mulesoft.com</uri>
